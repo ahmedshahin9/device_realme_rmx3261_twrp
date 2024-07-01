@@ -32,6 +32,21 @@ AB_OTA_PARTITIONS += \
     product
 endif
 
+# Recovery
+TARGET_NO_RECOVERY := true
+BOARD_USES_RECOVERY_AS_BOOT := true
+TARGET_RECOVERY_DEVICE_MODULES += \
+    libcap \
+    libion \
+    libxml2
+TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libcap.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
+
+
+
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
