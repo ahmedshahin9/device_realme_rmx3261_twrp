@@ -45,7 +45,11 @@ TW_RECOVERY_ADDITIONAL_RELINK_LIBRARY_FILES += \
     $(TARGET_OUT_SHARED_LIBRARIES)/libxml2.so
 
 
-
+# Additional Libraries
+TARGET_RECOVERY_DEVICE_MODULES += \
+    libandroidicu 
+    $(OUT_DIR)/target/product/$(PRODUCT_DEVICE)/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so
+    
 
 # Architecture
 TARGET_ARCH := arm64
