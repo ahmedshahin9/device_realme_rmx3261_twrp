@@ -139,6 +139,23 @@ BOARD_AVB_BOOT_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 2
 
 
+# UserIMG
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
+
+# File systems
+BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
+
+# System as root
+BOARD_SUPPRESS_SECURE_ERASE := true
+
+# Partitions (listed in the file) to be wiped under recovery.
+TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery/root/system/etc/recovery.wipe
+
+# Use mke2fs to create ext4 images
+TARGET_USES_MKE2FS := true
+
+
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
