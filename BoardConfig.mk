@@ -16,18 +16,21 @@ BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
 RELAX_USES_LIBRARY_CHECK=true
 
 # A/B
+ifeq ($(TARGET_IS_VAB),true)
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
-    system \
-    boot \
+    vbmeta \
     vbmeta_system \
-    product \
     vbmeta_vendor \
+    vbmeta_product \
+    vbmeta_system_ext \
     dtbo \
+    boot \
+    system \
     system_ext \
     vendor \
-    vbmeta
-BOARD_USES_RECOVERY_AS_BOOT := true
+    product
+endif
 
 # Architecture
 TARGET_ARCH := arm64
